@@ -1,7 +1,7 @@
 "use client";
 
 import Modal from "./Modal";
-import { FormEventHandler, useState } from "react";
+import { FormEvent, useState } from "react";
 import { addTodo } from "@/api";
 import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
@@ -11,12 +11,14 @@ const AddTask = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTaskValue, setNewTaskValue] = useState<string>("");
 
-  const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
+  const handleSubmitNewTodo = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     await addTodo({
       id: uuidv4(),
       text: newTaskValue,
     });
+
     setNewTaskValue("");
     setModalOpen(false);
     router.refresh();
@@ -42,9 +44,10 @@ const AddTask = () => {
               placeholder="Add task here..."
               className="input input-bordered w-full focus:outline-none md:text-[16px]"
             />
+
             <button
               type="submit"
-              className="focus:outline-none text-white bg-blue-500 hover:bg-blue-600 rounded-lg text-sm px-5 py-2.5 text-nowrap"
+              className="focus:outline-none text-white bg-blue-500 hover:bg-blue-600 rounded-lg text-no px-5 py-2.5 whitespace-nowrap"
             >
               Add Task
             </button>
