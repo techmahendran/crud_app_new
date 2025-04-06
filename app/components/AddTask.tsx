@@ -1,6 +1,5 @@
 "use client";
 
-import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "./Modal";
 import { FormEventHandler, useState } from "react";
 import { addTodo } from "@/api";
@@ -27,24 +26,27 @@ const AddTask = () => {
     <div>
       <button
         onClick={() => setModalOpen(true)}
-        className='btn btn-primary w-full'
+        className=" px-2.5 py-1.5 bg-green-500 text-white rounded outline-none"
       >
-        Add new task <AiOutlinePlus className='ml-2' size={18} />
+        Add new task
       </button>
 
       <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
         <form onSubmit={handleSubmitNewTodo}>
-          <h3 className='font-bold text-lg'>Add new task</h3>
-          <div className='modal-action'>
+          <h3 className="font-bold text-lg text-left">Add new task</h3>
+          <div className="modal-action">
             <input
               value={newTaskValue}
               onChange={(e) => setNewTaskValue(e.target.value)}
-              type='text'
-              placeholder='Type here'
-              className='input input-bordered w-full'
+              type="text"
+              placeholder="Add task here..."
+              className="input input-bordered w-full focus:outline-none md:text-[16px]"
             />
-            <button type='submit' className='btn'>
-              Submit
+            <button
+              type="submit"
+              className="focus:outline-none text-white bg-blue-500 hover:bg-blue-600 rounded-lg text-sm px-5 py-2.5 text-nowrap"
+            >
+              Add Task
             </button>
           </div>
         </form>

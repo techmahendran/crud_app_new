@@ -1,12 +1,8 @@
 {
-  "tasks": [
+  "todos": [
     {
-      "id": "4",
-      "text": "go to market"
-    },
-    {
-      "id": "5",
-      "text": "learn math"
+      "id": "e9949696-8d4f-499d-ba13-90f1c45f4fed",
+      "text": "My First Task"
     }
   ]
 }

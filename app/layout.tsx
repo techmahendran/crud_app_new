@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Simple TodoApp",
-  description: "simple todo app for learning next js 13",
+  title: "TodoApp",
+  description: "Todo app for next js",
 };
 
 export default function RootLayout({

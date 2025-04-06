@@ -34,44 +34,52 @@ const Task: React.FC<TaskProps> = ({ task }) => {
   };
 
   return (
-    <tr key={task.id}>
-      <td className='w-full'>{task.text}</td>
-      <td className='flex gap-5'>
+    <tr key={task.id} className="border border-[#DDDDDD] border-l-0 border-r-0">
+      <td className=" md:text-[16px] w-full border-r border-[#DDDDDD] last:border-r-0">
+        {task.text}
+      </td>
+      <td className="flex gap-5">
         <FiEdit
           onClick={() => setOpenModalEdit(true)}
-          cursor='pointer'
-          className='text-blue-500'
-          size={25}
+          cursor="pointer"
+          className="text-blue-500 md:w-[16px] md:h-[16px]"
+          title="Edit task"
         />
         <Modal modalOpen={openModalEdit} setModalOpen={setOpenModalEdit}>
           <form onSubmit={handleSubmitEditTodo}>
-            <h3 className='font-bold text-lg'>Edit task</h3>
-            <div className='modal-action'>
+            <h3 className="font-bold text-lg">Edit task</h3>
+            <div className="modal-action">
               <input
                 value={taskToEdit}
                 onChange={(e) => setTaskToEdit(e.target.value)}
-                type='text'
-                placeholder='Type here'
-                className='input input-bordered w-full'
+                type="text"
+                placeholder="Type here"
+                className="input input-bordered w-full focus:outline-none focus:ring-0 md:text-[16px]"
               />
-              <button type='submit' className='btn'>
-                Submit
+              <button
+                type="submit"
+                className="focus:outline-none text-nowrap text-white bg-blue-500 hover:bg-blue-600 rounded-lg text-sm px-3 py-2.5"
+              >
+                Update Task
               </button>
             </div>
           </form>
         </Modal>
         <FiTrash2
           onClick={() => setOpenModalDeleted(true)}
-          cursor='pointer'
-          className='text-red-500'
-          size={25}
+          cursor="pointer"
+          className="text-red-500 md:w-[16px] md:h-[16px]"
+          title="Delete task"
         />
         <Modal modalOpen={openModalDeleted} setModalOpen={setOpenModalDeleted}>
-          <h3 className='text-lg'>
+          <h3 className="text-lg font-medium w-[95%]">
             Are you sure, you want to delete this task?
           </h3>
-          <div className='modal-action'>
-            <button onClick={() => handleDeleteTask(task.id)} className='btn'>
+          <div className="modal-action">
+            <button
+              onClick={() => handleDeleteTask(task.id)}
+              className="focus:outline-none relative right-5 text-[17px] border border-[#cccccc] text-blue-500 bg-white hover:text-white hover:bg-blue-600 rounded-lg px-3 py-2"
+            >
               Yes
             </button>
           </div>
