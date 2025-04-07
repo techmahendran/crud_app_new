@@ -35,7 +35,7 @@ const Task: React.FC<TaskProps> = ({ task }) => {
 
   return (
     <tr key={task.id} className="border border-[#DDDDDD] border-l-0 border-r-0">
-      <td className=" md:text-[16px] w-full border-r border-[#DDDDDD] last:border-r-0">
+      <td className=" md:text-[16px] w-full border-r border-[#DDDDDD] last:border-r-0 whitespace-normal">
         {task.text}
       </td>
       <td className="flex gap-5">
